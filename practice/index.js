@@ -1,6 +1,1 @@
-import Vue from 'vue'
-
-new Vue({
-  el: '#root',
-  template: '<div>this is my content</div>'
-})
+import vmodel from './component/v-model'
