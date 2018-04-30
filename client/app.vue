@@ -3,6 +3,9 @@
     <div id="cover"></div>
     <Header></Header>
     <!-- <todo></todo> -->
+    <router-link to="/app"> ____app____ </router-link>
+    <router-link to="/login"> ____login____ </router-link>
+    <router-link to="/login/exact"> ____login_exact____ </router-link>
     <router-view />
     <Footer></Footer>
   </div>

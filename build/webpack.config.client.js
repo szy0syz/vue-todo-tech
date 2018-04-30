@@ -13,7 +13,10 @@ const devServer = {
   overlay: {
     errors: true,
   },
-  hot: true
+  hot: true,
+  historyApiFallback: {
+    index: '/index.html'
+  }
 }
 
 const defaultPlugins= [
@@ -64,11 +67,6 @@ if (isDev) {
     output: {
       filename: '[name].[chunkhash:8].js'
     },
-    // resolve: {
-    //   alias: {
-    //     'vue': path.join(__dirname, '../node_modules/vue/dist/vue.esm.js')
-    //   }
-    // },
     module: {
       rules: [
         {
