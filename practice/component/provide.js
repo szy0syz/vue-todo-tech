@@ -1,8 +1,8 @@
 import Vue from 'vue'
 
 const Comp1 = {
-  inject: ['father', 'fr1'],
-  template: '<span>Comp1 - {{fr1}}</span>',
+  inject: ['father', 'data'],
+  template: '<span>Comp1 - {{data.r1}}</span>',
   data() {
     return {
       c1: 2
@@ -15,16 +15,23 @@ new Vue({
     Comp1: Comp1
   },
   provide() {
+    const data = {}
+
+    Object.defineProperty(data, 'r1', {
+      get: () => this.r1,
+      enumerable: true
+    })
+
     return {
       father: this,
-      fr1: this.r1
+      data
     }
   },
   el: '#root',
   data: {
     r1: 'r1r1'
   },
-  template: `<div><comp1></comp1></div>`,
+  template: `<div><input type="text" v-model="r1"><comp1></comp1></div>`,
   mounted() {
     console.log('root mounted~')
   }
