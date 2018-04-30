@@ -1,1 +1,2 @@
-import vmodel from './component/v-model'
+// import vmodel from './component/v-model'
+import provide from './component/provide'
