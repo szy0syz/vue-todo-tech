@@ -7,13 +7,14 @@ export default [
     redirect: '/app'
   },
   {
+    // path: '/app/:qid',
     path: '/app',
+    //props: true, // 路由解耦
     component: Todo,
-  },
-  {
-    path: '/app/:qid',
-    props: true, // 路由解耦
-    component: Todo,
+    beforeEnter(to, from, next) { // 这里路由配置里的钩子
+      console.log('routes before Enter')
+      next()
+    },
     name: 'app',
     meta: {
       title: 'this is app',

@@ -27,6 +27,20 @@ import Item from './item.vue'
 import Tabs from './tabs.vue'
 let id = 0
 export default {
+  beforeRouteEnter(to, from, next) {
+    console.log('todo before Enter')
+    next()
+  },
+  beforeRouteUpdate(to, from, next) {
+    console.log('todo before Update')
+    next()
+  },
+  beforeRouteLeave(to, from, next) {
+    console.log('todo before Leave')
+    if(global.confirm('are you sure?')) {
+      next()
+    }
+  },
   props: ['qid'],
   mounted() {
     console.log('qid:', this.qid)
