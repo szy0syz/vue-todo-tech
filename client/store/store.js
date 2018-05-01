@@ -1,15 +1,14 @@
 import Vuex from 'vuex'
 
+import defaultState from './state/state'
+import mutations from './mutations/mutations'
+import getters from './getters/getters'
+
 // 典型闭包应用，每次返回都是一个函数，执行则生成新的作用域
 export default () => {
   return new Vuex.Store({
-    state: {
-      count: 0
-    },
-    mutations: {
-      updateCount(state, num) {
-        state.count = num
-      }
-    }
+    state: defaultState,
+    mutations,
+    getters
   })
 }
