@@ -2,6 +2,7 @@
   <div id="app">
     <div id="cover"></div>
     <Header></Header>
+    <p>{{count}}</p>
     <!-- <todo></todo> -->
     <router-link to="/app"> ____app____ </router-link>
     <router-link to="/login"> ____login____ </router-link>
@@ -23,6 +24,17 @@ export default {
     Header,
     Footer,
     // Todo,
+  },
+  mounted() {
+    console.log(this.$store)
+    setTimeout(() => {
+      this.$store.commit('updateCount', 4)
+    }, 1500)
+  },
+  computed: {
+    count() {
+      return this.$store.state.count
+    }
   }
 }
 </script>
