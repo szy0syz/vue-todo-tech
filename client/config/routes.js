@@ -1,4 +1,4 @@
-import Todo from '../views/todo/todo.vue'
+// import Todo from '../views/todo/todo.vue'
 import Login from '../views/login/login.vue'
 
 export default [
@@ -10,7 +10,8 @@ export default [
     // path: '/app/:qid',
     path: '/app',
     //props: true, // 路由解耦
-    component: Todo,
+    // component: Todo,
+    component: () => import('../views/todo/todo.vue'),
     beforeEnter(to, from, next) { // 这里路由配置里的钩子
       console.log('routes before Enter')
       next()
