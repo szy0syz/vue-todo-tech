@@ -38,7 +38,10 @@ router.afterEach((to, from) => {
   console.log('after Each invoked')
 })
 
+const isDev = process.env.NODE_ENV === 'development'
+
 new Vue({
+  strict: isDev,
   router,
   store,
   render: h => h(App)
