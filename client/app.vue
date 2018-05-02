@@ -2,7 +2,7 @@
   <div id="app">
     <div id="cover"></div>
     <Header></Header>
-    <p> ---- {{counter}} ---- {{fullName}}</p>
+    <p> ---- {{counter}} ---- {{fullName}} ___  {{plabBvalue}} __ cVal:{{cVal}} $</p>
     <!-- <todo></todo> -->
     <router-link to="/app"> ____app____ </router-link>
     <router-link to="/login"> ____login____ </router-link>
@@ -34,15 +34,22 @@ export default {
     // }, 1500)
     this.updateCount(99)
     this.updateCountAsync({ num: 55, time: 1500 })
+    this.updateBVal(999999)
+    this['A/updateCounter'](8)
   },
   methods: {
     ...mapActions(['updateCountAsync']),
-    ...mapMutations(['updateCount'])
+    ...mapMutations(['updateCount', 'updateBVal', 'A/updateCounter'])
   },
   computed: {
+    planB() {
+      return this.$store.state.planB.value
+    },
     // ...mapState(['count']),
     ...mapState({
-      counter: state => state.count
+      counter: state => state.count,
+      plabBvalue: state => state.planB.value,
+      cVal: state => state.c.val
     }),
     // count() {
     //   return this.$store.state.count

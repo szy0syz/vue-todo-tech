@@ -3,6 +3,6 @@
 // 例如，后端当给我们某些数据时，不符合我们的显示规则，此时我们就需要用getter处理
 export default {
   fullName(state) {
-    return `${state.firstName} ${state.lastName}`
+    return `${state.firstName} - ${state.lastName}`
   }
 }

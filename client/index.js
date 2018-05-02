@@ -17,6 +17,12 @@ document.body.appendChild(root)
 const router = createRouter()
 const store = createStore()
 
+store.registerModule('c', {
+  state: {
+    val: 94
+  }
+})
+
 // 路由的全局钩子
 router.beforeEach((to, from, next) => {
   console.log('before Each invoked')
