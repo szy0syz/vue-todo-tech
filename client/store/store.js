@@ -12,6 +12,12 @@ export default () => {
     mutations,
     getters,
     actions,
+    plugins: [
+      (store) => {
+        // store.subscribe
+        console.log('my plugin invoked')
+      }
+    ],
     modules: {
       A: {
         namespaced: true, // 强制启用命名空间 调用时a/title
