@@ -61,7 +61,9 @@ config = merge(baseConfig, {
       'process.evn.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
       'process.evn.VUE_ENV': '"server"', // 官方建议定义
     }),
-    new VueServerPlugin()
+    new VueServerPlugin({
+      // filename: '' // 指定打包输出文件名
+    })
   ]
 })
 
