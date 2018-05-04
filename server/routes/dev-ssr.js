@@ -34,12 +34,14 @@ const handleSSR = async (ctx) => {
 
   const clientManifestResp = await axios.get('http://127.0.0.1:8000/vue-ssr-client-manifest.json')
 
+  const clientManifest = clientManifestResp.data
+
   const template = fs.readFileSync(path.join(__dirname, '../server.template.ejs'))
 
   
 
   const renderer = VueServerRenderer.createBundleRenderer(bundle, {
     inject: false, // 不适用vue官方SSR注入模式，自己处理如何插入内容
-
+    clientManifest // 自动生成带有script标签的js文件引用的字符串
   })
 }
